@@ -201,6 +201,8 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+
+    <!-- camera view and devices options -->
     <template id="haircheck-header">
       <h2 style="text-align: center">Ready to join a video chat?</h2>
     </template>
@@ -212,25 +214,20 @@
     <template id="empty-roster">
       <div></div>
     </template>
+    
+    <!-- enter a room name page -->
     <template id="homepage">
       <div class="container">
         <form class="create-room-form" method="GET" action="/">
-          <span class="create-room-form-input-wrapper"
-            ><span class="domain">localhost/</span
-            ><input
-              type="text"
-              name="room"
-              placeholder="choose a room name"
-              class="create-room-form-input"/></span
-          ><button
-            class="create-room-form-button button button-default button-undefined"
-            type="submit"
-          >
-            Start a chat
-          </button>
+          <span class="create-room-form-input-wrapper">
+            <span class="domain">localhost/</span>
+            <input type="text" name="room" placeholder="choose a room name" class="create-room-form-input"/>
+          </span>
+          <button class="create-room-form-button button button-default button-undefined" type="submit">Start a chat</button>
         </form>
       </div>
     </template>
+
     <script type="text/javascript">
       const params = new URLSearchParams(window.location.search);
       SimpleWebRTC.run({
