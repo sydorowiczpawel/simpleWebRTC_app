@@ -31,9 +31,22 @@ const Container = styled.div`
   & .msg:last-of-type {
     border-bottom: none;
   }
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   min-height: calc(var(--vh, 1vh) * 50);
+//   max-height: calc(var(--vh, 1vh) * 100);
+//   border-top: ${({ theme }) => css`1px solid ${colorToString(theme.border)}`};
+//   z-index: 300;
+//   background-color: ${({ theme }) => colorToString(theme.background)};
+//   overflow: hidden;
+
+//   & .msg:last-of-type {
+//     border-bottom: none;
+//   }
 
   ${mq.SMALL_DESKTOP} {
-    width: 220px;
+    width: 33%;
     border-top: none;
     border-left: ${({ theme }) => css`1px solid ${colorToString(theme.border)}`};
   }
@@ -186,26 +199,20 @@ const ChatContainer: React.SFC<Props> = ({ roomAddress, toggleChat, disabled }) 
         )}
       />
     </StyledStayDownContainer>
-    <InputContainer className={disabled ? 'chat-disabled' : ''}>
-      <ChatInput
-        autoFocus
-        disabled={disabled}
-        room={roomAddress}
-        placeholder={disabled ? 'Waiting to join room...' : 'Send a message...'}
-        render={chatProps => (
+    <InputContainer className={disabled ? 'czat niedostępny' : ''}>
+      <ChatInput autoFocus disabled={disabled} room={roomAddress} placeholder={disabled ? 'Waiting to join room...' : 'Aa'}
+      render={chatProps => (
           <>
             <ChatInputTextArea {...chatProps} />
-            <label style={{ display: 'inline-block' }}>
-              <input
-                type="checkbox"
-                checked={chatProps.rtt}
-                onChange={() => chatProps.useRealtimeText(!chatProps.rtt)}
-              />
+            {/* <label style={{ display: 'inline-block' }}>
+              <input type="checkbox" checked={chatProps.rtt} onChange={() => chatProps.useRealtimeText(!chatProps.rtt)}/>
               <span>Send as I type</span>
-            </label>
+            </label> */}
             <TalkyButton onClick={chatProps.sendMessage} style={{ float: 'right' }}>
-              <SendIcon />
-              <span>Send</span>
+              {/* <SendIcon /> */}
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
+              </span>
             </TalkyButton>
           </>
         )}

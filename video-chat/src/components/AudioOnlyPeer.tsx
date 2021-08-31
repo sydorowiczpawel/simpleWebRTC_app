@@ -6,9 +6,12 @@ const Container = styled('div')({
   flex: 1,
   display: 'flex',
   alignItems: 'center',
+  // alignItems: 'left',
   justifyContent: 'center',
+  // justifyContent: 'right',
   position: 'relative',
-  backgroundColor: '#E9ECEC',
+  // backgroundColor: '#E9ECEC',
+  backgroundColor: '000000',
   height: '100%'
 });
 
