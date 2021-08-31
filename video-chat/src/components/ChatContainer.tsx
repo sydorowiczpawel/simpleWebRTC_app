@@ -17,6 +17,7 @@ import mq from '../styles/media-queries';
 import { colorToString } from '../utils/colorify';
 import emojify from '../utils/emojify';
 import Linkify from './Linkify';
+import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip } from 'bootstrap';
 
 const Container = styled.div`
   display: flex;
@@ -31,19 +32,6 @@ const Container = styled.div`
   & .msg:last-of-type {
     border-bottom: none;
   }
-// const Container = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   min-height: calc(var(--vh, 1vh) * 50);
-//   max-height: calc(var(--vh, 1vh) * 100);
-//   border-top: ${({ theme }) => css`1px solid ${colorToString(theme.border)}`};
-//   z-index: 300;
-//   background-color: ${({ theme }) => colorToString(theme.background)};
-//   overflow: hidden;
-
-//   & .msg:last-of-type {
-//     border-bottom: none;
-//   }
 
   ${mq.SMALL_DESKTOP} {
     width: 33%;
@@ -52,12 +40,12 @@ const Container = styled.div`
   }
 `;
 
-// const staydownContainerClass = css`
-//   flex: 1;
-//   overflow: scroll;
-//   height: 0px; /* This is important to get Flexbox to overflow properly. */
-//   margin-bottom: 16px;
-// `;
+const staydownContainerClass = css`
+  flex: 1;
+  overflow: scroll;
+  height: 0px; /* This is important to get Flexbox to overflow properly. */
+  margin-bottom: 16px;
+`;
 
 const Header = styled.button`
   text-align: left;
@@ -189,8 +177,9 @@ const ChatContainer: React.SFC<Props> = ({ roomAddress, toggleChat, disabled }) 
     <Header onClick={toggleChat}>
       <KeyboardArrowDownIcon />
       <ChatIcon />
-      <span>Chat</span>
+      <span>Czat</span>
     </Header>
+
     <StyledStayDownContainer>
       <ChatList
         room={roomAddress}
@@ -199,17 +188,13 @@ const ChatContainer: React.SFC<Props> = ({ roomAddress, toggleChat, disabled }) 
         )}
       />
     </StyledStayDownContainer>
+
     <InputContainer className={disabled ? 'czat niedostępny' : ''}>
       <ChatInput autoFocus disabled={disabled} room={roomAddress} placeholder={disabled ? 'Waiting to join room...' : 'Aa'}
       render={chatProps => (
           <>
             <ChatInputTextArea {...chatProps} />
-            {/* <label style={{ display: 'inline-block' }}>
-              <input type="checkbox" checked={chatProps.rtt} onChange={() => chatProps.useRealtimeText(!chatProps.rtt)}/>
-              <span>Send as I type</span>
-            </label> */}
             <TalkyButton onClick={chatProps.sendMessage} style={{ float: 'right' }}>
-              {/* <SendIcon /> */}
               <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg>
               </span>
